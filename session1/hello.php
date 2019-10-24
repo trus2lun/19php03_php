@@ -20,7 +20,7 @@
 ?>
 <?php
 	$month = 12;
-	if (($month<1)||($month>12)) {
+	if (($month < 1)||($month > 12)) {
 		echo "Không phải tháng trong năm. ";
 	}
 	switch ($month) {
