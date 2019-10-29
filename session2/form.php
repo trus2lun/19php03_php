@@ -23,7 +23,7 @@
 		$email = $_POST['email'];
 		$birth = $_POST['birth'];
 		if ($name == '') {
-		$errName = ' Please input your name';
+			$errName = ' Please input your name';
 		}
 		if ($email == '') {
 			$errEmail = ' Please input your email';
@@ -32,10 +32,20 @@
 			$errBirth = ' Please input your birth';
 		}
 	}
+	echo $_POST['name'];
+	echo "<br>";
+	echo $_REQUEST['gender'];
+	echo "<br>";
+	echo $_REQUEST['country'];
+	echo "<br>";
+	echo $_REQUEST['email'];
+	echo "<br>";
+	echo $_REQUEST['birth'];
+	echo "<br>";
 ?>
 <div class="form_register">
 	<h2>Form</h2>
-	<form action="success_register.php" method="POST">
+	<form action="#" method="POST">
 		<p class="name">
 			Họ và tên:
 			<input type="text" name="name" value="<?php echo $name?>">

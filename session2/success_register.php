@@ -9,3 +9,4 @@
 	echo "<br>";
 	echo $_REQUEST['birth'];
 	echo "<br>";
+?>
