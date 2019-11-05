@@ -9,6 +9,21 @@
 </head>
 <body>
 	<?php
+
+	$servername = "localhost";
+	$database = "root";
+	$username = "trus2lun";
+	$password = "";
+	// Create connection
+	$conn = new mysql($servername, $username, $password, $database);
+	// Check connection
+	if (!$conn) {
+	    die("Connection failed: " . mysqli_connect_error());
+	}
+	echo "Connected successfully";
+	mysqli_close($conn);
+
+
 	$arrType = array('fd' => 'food' , 'ty' => 'technology' );
 	$errName = $errDescribe = $errAvatar = $errNew = $errOld = $errDate = $errType = '';
 	$name = $describe = $avatar = $new = $old = $type = '';
