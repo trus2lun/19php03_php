@@ -16,12 +16,14 @@
 	}
 </style>
 <?php
-	$name = $email = $birth = '';
-	$errName = $errEmail = $errBirth = '';
+	$name = $email = $birth = $gender = $country = '';
+	$errName = $errEmail = $errBirth = $errGender = $errCountry = '';
 	if (isset($_POST['register'])) {
 		$name = $_POST['name'];
 		$email = $_POST['email'];
 		$birth = $_POST['birth'];
+		$gender = isset($_POST['gender'])?$_POST['gender']:'';
+		$country = $_POST['country'];
 		if ($name == '') {
 			$errName = ' Please input your name';
 		}
@@ -31,16 +33,22 @@
 		if ($birth == '') {
 			$errBirth = ' Please input your birth';
 		}
+		if ($gender == '') {
+			$errGender = ' Please input your gender';
+		}
+		if ($country == '') {
+			$errCountry = ' Please input your country';		
+		}
 	}
-	echo $_POST['name'];
+	echo $name;
 	echo "<br>";
-	echo $_REQUEST['gender'];
+	echo $gender;
 	echo "<br>";
-	echo $_REQUEST['country'];
+	echo $country;
 	echo "<br>";
-	echo $_REQUEST['email'];
+	echo $email;
 	echo "<br>";
-	echo $_REQUEST['birth'];
+	echo $birth;
 	echo "<br>";
 ?>
 <div class="form_register">
@@ -53,17 +61,22 @@
 		</p>
 		<p class="gender">
 			Giới tính: <br>
-			<input type="radio" name="gender" value="Nam" checked> Nam <br>
-			<input type="radio" name="gender" value="Nữ"> Nữ <br>
-			<input type="radio" name="gender" value="Khác"> Khác
+			<input type="radio" name="gender" value="Nam" <?php echo $gender?>> Nam <br>
+			<input type="radio" name="gender" value="Nữ" <?php echo $gender?>> Nữ <br>
+			<input type="radio" name="gender" value="Khác" <?php echo $gender?>> Khác
+			<br>
+			<span class="error"><?php echo $errGender;?></span>
 		</p>
 		<p class="country">
 			Quê quán: 
 			<select name="country">
-				<option value="Đà Nẵng">Đà Nẵng</option>
-				<option value="Quảng Nam">Quảng Nam</option>
-				<option value="Hà Nội">Hà Nội</option>
+				<option value=" "></option>
+				<option value="Đà Nẵng" <?php echo $country?>>Đà Nẵng</option>
+				<option value="Quảng Nam" <?php echo $country?>>Quảng Nam</option>
+				<option value="Hà Nội" <?php echo $country?>>Hà Nội</option>
+				<span class="error"><?php echo $errCountry;?></span>
 			</select>
+			
 		</p>
 		<p class="email">
 			Email: 
