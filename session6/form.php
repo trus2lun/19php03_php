@@ -94,7 +94,7 @@
 	?>
 	<h1>Form</h1>
 	<div class="input-form">
-		<form action="#" name="inputForm" id="inputForm" method="POST" enctype="multipart/form-data" style="margin-left: 20%;">
+		<form action="#" name="inputForm" id="inputForm" method="POST" enctype="multipart/form-data" style="margin-left: 30%;">
 			<div class="label">Label</div>
 			<div class="input">
 				<input type="text" name="label" id="label" value="<?php echo$label?>">
