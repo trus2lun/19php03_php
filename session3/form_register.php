@@ -9,6 +9,63 @@
 </head>
 <body>
 	<?php
+	// connect php vs mysql
+		$server = "localhost";
+		$username = "root";
+		$password = ""; // $password = "";
+		$database = "19php03";
+
+		// ket noi
+		$connect = mysqli_connect($server, $username, $password, $database);
+
+		// Check connection
+		if (mysqli_connect_error())
+	  {
+	  	echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	  }
+	  	$name = "";
+		$describe = "";
+		$new = "";
+		$old = "";
+		$type = "";
+		$avatar = ""; 
+
+		if (isset($_POST['register'])) {
+			$name = $_POST['name'];
+			$describe = $_POST['describe'];
+			$new = $_POST['new'];
+			$old = $_POST['old'];
+			$type = $_POST['type'];
+			$avatar = $_FILES['avatar'];
+
+			// cau lenh chen user vao db
+			$sql = "INSERT INTO users(name, describe, new, old, type, avatar) VALUES ('$name', '$describe', '$new', '$old', '$type', '$avatarName')";
+			
+			// thuc thi cau lenh sql
+			mysqli_query($connect, $sql);
+
+		}
+		//Lấy giá trị POST từ form vừa submit
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	    if(isset($_POST["name"])) { $username = $_POST['name']; }
+	    if(isset($_POST["describe"])) { $describe = $_POST['describe']; }
+	    if(isset($_POST["new"])) { $new = $_POST['new']; }
+	    if(isset($_POST["old"])) { $old = $_POST['old']; }
+	    if(isset($_POST["type"])) { $type = $_POST['type']; }
+	    if(isset($_POST["avatar"])) { $avatar = $_FILES['avatar']; }
+	}
+	    //Code xử lý, insert dữ liệu vào table
+	    $sql = "INSERT INTO users(name, describe, new, old, type, avatar)
+	    VALUES ('$name' , '$describe' , '$new' , '$old' , '$type' , '$avatar')";
+
+	    if ($connect->query($sql) === TRUE) {
+	        echo "Thêm dữ liệu thành công";
+	    } else {
+	        echo "Error: " . $sql . "<br>" . $connect->error;
+	    }
+	    //Đóng database
+	$connect->close();
+
 	$arrType = array('fd' => 'food' , 'ty' => 'technology' );
 	$errName = $errDescribe = $errAvatar = $errNew = $errOld = $errDate = $errType = '';
 	$name = $describe = $avatar = $new = $old = $type = '';
