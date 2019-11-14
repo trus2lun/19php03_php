@@ -35,6 +35,7 @@
 			<th>label</th>
 			<th>describe</th>
 			<th>image</th>
+			<th>delete</th>
 		</tr>
 	
 	<?php 

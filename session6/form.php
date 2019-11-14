@@ -39,19 +39,9 @@
 	<meta name="decription" content="This is register form">
 </head>
 <body>
-
+	<?php include 'database.php';?>
 	<?php
-	$sever = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "19php03";
-
-	$connect = mysqli_connect($sever, $username, $password, $database);
-
-	if ($connect->connect_error) {
-		die("Connection failed: " . $connect->connect_error);
-	}
-
+	
 	$errLabel = $errDescribe = $errImage = '';
 
 	$label = $describe = $image = '';
