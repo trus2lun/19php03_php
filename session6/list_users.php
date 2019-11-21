@@ -36,6 +36,7 @@
 			<th>describe</th>
 			<th>image</th>
 			<th>delete</th>
+			<th>update</th>
 		</tr>
 	
 	<?php 
@@ -48,6 +49,7 @@
 			echo "<td>".$row['DescribeD']."</td>";
 			echo "<td><img src='uploads/".$row['image']."'></td>";
 			echo "<td><a href='delete.php?ID=".$id."''>Delete</a></td>";
+			echo "<td><a href='edit.php?ID=".$id."''>Update</a></td>";
 			echo "</tr>";
 		}
 	?>
