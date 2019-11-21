@@ -49,7 +49,7 @@
 			echo "<td>".$row['DescribeD']."</td>";
 			echo "<td><img src='uploads/".$row['image']."'></td>";
 			echo "<td><a href='delete.php?ID=".$id."''>Delete</a></td>";
-			echo "<td><a href='edit.php?ID=".$id."''>Update</a></td>";
+			echo "<td><a href='update.php?ID=".$id."''>Update</a></td>";
 			echo "</tr>";
 		}
 	?>
