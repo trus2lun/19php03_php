@@ -8,9 +8,7 @@ FROM
     products
 INNER JOIN categories ON products.categoryID = categories.categoryID
 WHERE
-    categoryName = 'Guitars' AND listPrice >= 500 
-ORDER BY
-    `products`.`listPrice` 
+    categoryName = 'Guitars' AND listPrice >= 500  
 
 -- BT2:
 SELECT * FROM products 
@@ -34,6 +32,7 @@ INNER JOIN orders
 ON orderitems.orderID = orders.orderID
 INNER JOIN customers
 ON orders.customerID = customers.customerID
+WHERE emailAddress LIKE '%@gmail.com'
 
 -- BT5:
 SELECT *
