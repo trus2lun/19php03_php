@@ -44,12 +44,17 @@
 	//get old user to edit
 	$idUpdate = $_GET['id'];
 
+	$arrGender = array('Male' => 'Male' , 'Female' => 'Female' );
+
+	$sqlCate = "SELECT * FROM school";
+	$categories = mysqli_query($connect, $sqlCate);
+
 	$sqlUpdate = "SELECT * FROM student WHERE id = $idUpdate";
 	$dataUpdate = mysqli_query($connect, $sqlUpdate);
 	$update = $dataUpdate->fetch_assoc();
 	//end get old
 	if (isset($_POST['update'])) {
-		$student_name = $_POST['student_name'];
+		$student_name = $_POST['name_of_student'];
 		$gender = $_POST['gender'];
 		$image = $update['image'];
 		if ($_FILES['image']['error'] == 0) {
@@ -67,17 +72,17 @@
 	<h1>Update</h1>
 	<div class="input-form">
 		<form action="#" name="inputForm" id="inputForm" method="POST" enctype="multipart/form-data" style="margin-left: 30%;">
+
 			<div class="label">Name</div>
 			<div class="input">
-				<input type="text" name="name_of_student" id="name_of_student" value="<?php echo$update['student_name']?>">
+				<input type="text" name="name_of_student" id="name_of_student" value="<?php echo $update['student_name']?>">
 			</div>
 			<div class="label">Gender</div>
 			<select name="gender">
 				<option value="">--CHOOSE--</option>
-				<option value="Male" <?php echo ($gender == 'M')?'selected':''?>>Male</option>
-				<option value="Female" <?php echo ($gender == 'F')?'selected':''?>>Female</option>
+				<option value="Male" <?php echo ($update['gender'] == 'Male')?'selected':''?>>Male</option>
+				<option value="Female" <?php echo ($update['gender'] == 'Female')?'selected':''?>>Female</option>
 			</select>
-			<span class="error"> <?php echo $errGender;?></span>
 			<p>School
 			<select name="school_category_id">
 				<?php 
@@ -91,14 +96,7 @@
 			<div class="input">
 				<input type="file" name="image" id="image">
 			</div><br>
-			<p>
-				<input type="submit" name="add">
-			</p>
-			<div class="form-control">
-				<div class="input">
-					<input type="submit" name="update" value="Update">
-				</div>
-			</div>
+			<input type="submit" name="update" value="Update">
 		</form>
 	</div>
 </body>

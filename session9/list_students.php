@@ -84,7 +84,7 @@
 				echo "<td>".$row['gender']."</td>";
 				echo "<td>".$row['school_name']."</td>";
 				echo "<td><img src='uploads/".$row['image']."'></td>";
-				echo "<td><a href='delete.php?id=".$id."''>Delete</a> ";
+				echo "<td><a href='delete.php?id=".$id."''>Delete</a> | <a href='update.php?id=".$id."''>Update</a></td>";
 				echo "</tr>";
 			}
 		?>
