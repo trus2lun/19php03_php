@@ -57,12 +57,13 @@
 		$student_name = $_POST['name_of_student'];
 		$gender = $_POST['gender'];
 		$image = $update['image'];
+		$id_school = $_POST['school_category_id'];
 		if ($_FILES['image']['error'] == 0) {
 			$image = $_FILES['image']['name'];
 			move_uploaded_file($_FILES['image']['tmp_name'],'uploads/'.$image);
 		}
 
-		$sqlUpdateData = "UPDATE student SET student_name = '$student_name', gender = '$gender', image = '$image' WHERE id = $idUpdate";
+		$sqlUpdateData = "UPDATE student SET student_name = '$student_name', gender = '$gender', image = '$image', WHERE id = $idUpdate";
 
 		if ($connect->query($sqlUpdateData) === TRUE) {
 			header('Location: list_students.php');
@@ -86,9 +87,10 @@
 			<p>School
 			<select name="school_category_id">
 				<?php 
-						while ($row = $categories->fetch_assoc()) {
-							echo "<option value='".$row['id']."'>".$row['school_name']."</option>";
-						}
+					echo "<select name='id_school'>";
+					while ($row = $categories->fetch_assoc()) {
+						echo "<option value='".$row['id']."'>".$row['school_name']."</option>";
+					}
 				?>
 			</select>
 			</p>

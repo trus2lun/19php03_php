@@ -95,7 +95,7 @@
 			<div class="label">Gender</div>
 			<select name="gender">
 				<option value="">--CHOOSE--</option>
-				<option value="Male" <?php echo ($gender == 'Male')?'selected':''?>>Male</option>
+				<option value="Male" <?php echo ($gender == 'Male')?>>Male</option>
 				<option value="Female" <?php echo ($gender == 'Female')?'selected':''?>>Female</option>
 			</select>
 			<span class="error"> <?php echo $errGender;?></span>
