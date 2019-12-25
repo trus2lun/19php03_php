@@ -7,5 +7,4 @@
 	$customer->history();
 	echo "<br>"; 
 	$customer->register();
-	$customer->test();
 ?>

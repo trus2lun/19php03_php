@@ -1,4 +1,13 @@
-<?php  
+<!-- public: ở ngoài, ở trong đều lấy được -->
+<!-- protected: chỉ ở trong một mảng mới lấy được -->
+<!-- private: không lấy ra ngoài được -->
+<!-- lấy private hoặc protected bằng cách -->
+<!-- puclic function change() {
+	$this->tên của phương thức muốn lấy ra mà đựng trong private hay protected()
+} -->
+<!-- sau đó sử dụng phương thức change() thay vì phương thức không lấy được ở trên -->
+
+<?php
 	class User {
 
 		// public, protected, private
@@ -28,6 +37,9 @@
 		}
 		public function delete() {
 
+		}
+		public function change() {
+			$this->add();
 		}
 	}
 
